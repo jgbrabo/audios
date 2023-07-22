@@ -20,6 +20,7 @@
       justify-content: space-between;
       font-family: 'Open Sans', sans-serif;
       justify-content: flex-start;
+      cursor: pointer; /* Adicione o cursor pointer para indicar que é clicável */
     }
 
     .audio-box {
@@ -114,8 +115,8 @@
     /* Estilo para o ícone de "Compartilhar" */
     .encaminhada i.fa-share {
       margin-right: 8px;
-      
     }
+
   </style>
 </head>
 <body>
@@ -123,7 +124,7 @@
     <i class="fas fa-share"></i>
     <i>Encaminhada</i>
   </div>
-  <div class="audio-container">
+  <div class="audio-container" id="audioContainer">
     <!-- Cole o link do Seu áudio Abaixo-->
     <audio class="plyr" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/cli88mae30010mh0f0yzjqn48/blocks/dk597bkc7r3p3g0mualjphgx?v=1685942013256"></audio>
     <div class="audio-box">
@@ -152,6 +153,25 @@
       audioElement.addEventListener('pause', function() {
         currentTimeElement.classList.add('hide');
         durationElement.classList.remove('hide');
+      });
+
+      const audioContainer = document.getElementById('audioContainer');
+      audioContainer.addEventListener('click', function() {
+        const playButton = audioContainer.querySelector('.plyr__controls button[data-plyr="play"]');
+        playButton.click();
+      });
+
+      const playPauseButton = document.getElementById('audioContainer').querySelector('.plyr__controls button[data-plyr="play"]');
+      const audioBox = document.querySelector('.audio-box');
+      playPauseButton.addEventListener('click', function() {
+        const playButton = audioContainer.querySelector('.plyr__controls button[data-plyr="play"]');
+        playButton.click();
+      });
+
+      audioBox.addEventListener('click', function(event) {
+        event.stopPropagation(); // Impede que o clique no ícone de play/pause propague para o container
+        const playButton = audioContainer.querySelector('.plyr__controls button[data-plyr="play"]');
+        playButton.click();
       });
     });
     
