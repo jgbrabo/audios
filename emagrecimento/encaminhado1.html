@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/icon?family=Material+Icons'); /* Importe a fonte de ícones do Google */
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
     body {
       height: 100vh;
@@ -20,7 +20,7 @@
       justify-content: space-between;
       font-family: 'Open Sans', sans-serif;
       justify-content: flex-start;
-      cursor: pointer; /* Adicione o cursor pointer para indicar que é clicável */
+      cursor: pointer; 
     }
 
     .audio-box {
@@ -35,7 +35,7 @@
     }
 
     .audio-box i {
-      font-family: 'Material Icons'; /* Defina a fonte de ícones do Google */
+      font-family: 'Material Icons'; 
       font-size: 25px;
       color: #ffff;
     }
@@ -96,13 +96,12 @@
       margin-right: var(--plyr-control-spacing);
     }
 
-    /* Regra específica para ocultar os controles de tempo */
+    /* Ocultar os controles de tempo */
     .plyr--audio .plyr__controls .plyr__controls__item.plyr__time--current.hide,
     .plyr--audio .plyr__controls .plyr__controls__item.plyr__time--duration.hide {
       display: none;
     }
 
-    /* Estilo para a div do texto "Encaminhada" */
     .encaminhada {
       display: flex;
       align-items: center;
@@ -112,7 +111,6 @@
       font-weight: 400;
     }
 
-    /* Estilo para o ícone de "Compartilhar" */
     .encaminhada i.fa-share {
       margin-right: 8px;
     }
@@ -126,7 +124,7 @@
   </div>
   <div class="audio-container" id="audioContainer">
     <!-- Cole o link do Seu áudio Abaixo-->
-    <audio class="plyr" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/cli88mae30010mh0f0yzjqn48/blocks/dk597bkc7r3p3g0mualjphgx?v=1685942013256"></audio>
+    <audio class="plyr" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/cli88mae30010mh0f0yzjqn48/blocks/dk597bkc7r3p3g0mualjphgx?v=1685942013256" autoplay></audio>
     <div class="audio-box">
       <i class="material-icons">&#xe310;</i>
     </div>
@@ -143,7 +141,7 @@
       const currentTimeElement = document.querySelector('.plyr__time--current');
       const durationElement = document.querySelector('.plyr__time--duration');
 
-      currentTimeElement.classList.add('hide'); // Adiciona a classe 'hide' ao iniciar
+      currentTimeElement.classList.add('hide'); 
 
       audioElement.addEventListener('play', function() {
         currentTimeElement.classList.remove('hide');
@@ -169,7 +167,7 @@
       });
 
       audioBox.addEventListener('click', function(event) {
-        event.stopPropagation(); // Impede que o clique no ícone de play/pause propague para o container
+        event.stopPropagation(); 
         const playButton = audioContainer.querySelector('.plyr__controls button[data-plyr="play"]');
         playButton.click();
       });
