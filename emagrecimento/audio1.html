@@ -20,7 +20,7 @@
       justify-content: space-between;
       font-family: 'Open Sans', sans-serif;
       justify-content: flex-start;
-      cursor: pointer; /* Adicione o cursor pointer para indicar que é clicável */
+      cursor: pointer; 
     }
 
     .audio-container img {
@@ -29,6 +29,7 @@
       border-radius: 50%;
       object-fit: cover;
       padding-right: 8px;
+      padding-left: 10px;
     }
 
     .audio-container .microphone-icon {
@@ -59,6 +60,7 @@
       color: #4a5464;
       color: var(--plyr-audio-control-color,#4a5464);
       margin-left: 0px;
+      padding: 0px;
     }
 
     .plyr--audio .plyr__control--overlaid .plyr__control__icon {
@@ -104,7 +106,6 @@
       margin-right: var(--plyr-control-spacing);
     }
 
-    /* Regra específica para ocultar os controles de tempo */
     .plyr--audio .plyr__controls .plyr__controls__item.plyr__time--current.hide,
     .plyr--audio .plyr__controls .plyr__controls__item.plyr__time--duration.hide {
       display: none;
@@ -115,7 +116,7 @@
 <body>
   <div class="audio-container" id="audioContainer">
     <!-- Cole o link do Seu áudio Abaixo-->
-    <audio class="plyr" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/cljvwf8b6004sl30fb9msiynh/blocks/rumog87nx4czc1assax9csrf?v=1689273923232" autoplay></audio>
+    <audio class="plyr" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/cljvwf8b6004sl30fb9msiynh/blocks/rumog87nx4czc1assax9csrf?v=1689273923232" autoplay></audio> 
     <!-- Cole o link da Sua imagem Abaixo-->
     <img src="https://i.imgur.com/cknxSJf.png" alt="Imagem">
     <div class="microphone-icon">
@@ -135,13 +136,13 @@
       const durationElement = document.querySelector('.plyr__time--duration');
       const microphoneIcon = document.querySelector('.microphone-icon');
 
-      currentTimeElement.classList.add('hide'); // Adiciona a classe 'hide' ao iniciar
+      currentTimeElement.classList.add('hide'); 
 
       audioElement.addEventListener('play', function() {
         currentTimeElement.classList.remove('hide');
         durationElement.classList.add('hide');
-        microphoneIcon.classList.add('blue'); // Adiciona a classe 'blue' para alterar a cor do ícone
-        audioElement.classList.add('blue'); // Adiciona a classe 'blue' para alterar o background do controle deslizante
+        microphoneIcon.classList.add('blue'); 
+        audioElement.classList.add('blue'); 
         audioElement.style.setProperty('--range-thumb-background', '#3db8ee');
       });
 
@@ -164,7 +165,7 @@
       });
 
       audioBox.addEventListener('click', function(event) {
-        event.stopPropagation(); // Impede que o clique no ícone de play/pause propague para o container
+        event.stopPropagation(); 
         const playButton = audioContainer.querySelector('.plyr__controls button[data-plyr="play"]');
         playButton.click();
       });
